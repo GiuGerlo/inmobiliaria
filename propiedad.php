@@ -90,9 +90,9 @@ include_once 'includes/head.php';
                         </div>
                     <?php endif; ?>
                     <?php if ($propiedad['vendida']): ?>
-                        <div class="status-badge vendida">VENDIDA</div>
+                        <div class="status-badge vendida glass-badge">VENDIDA</div>
                     <?php else: ?>
-                        <div class="status-badge">DISPONIBLE</div>
+                        <div class="status-badge disponible glass-badge">DISPONIBLE</div>
                     <?php endif; ?>
                 </div>
             </div>
@@ -178,18 +178,16 @@ include_once 'includes/head.php';
                 <?php endif; ?>
 
                 <!-- Información de la propiedad -->
-                <div class="property-info-card">
-
+                <div class="property-info-card glass-info-card">
                     <!-- Información básica -->
-                    <div class="info-section">
+                    <div class="info-section glass-block">
                         <h3 class="section-title">
                             <i class="bi bi-info-circle me-2"></i>
                             Información General
                         </h3>
-
                         <div class="info-grid">
                             <?php if ($propiedad['ubicacion']): ?>
-                                <div class="info-item">
+                                <div class="info-item glass-info-item">
                                     <i class="bi bi-map"></i>
                                     <div class="info-content">
                                         <h6>Ubicación</h6>
@@ -197,9 +195,8 @@ include_once 'includes/head.php';
                                     </div>
                                 </div>
                             <?php endif; ?>
-
                             <?php if ($propiedad['tamanio']): ?>
-                                <div class="info-item">
+                                <div class="info-item glass-info-item">
                                     <i class="bi bi-rulers"></i>
                                     <div class="info-content">
                                         <h6>Dimensiones</h6>
@@ -207,16 +204,14 @@ include_once 'includes/head.php';
                                     </div>
                                 </div>
                             <?php endif; ?>
-
-                            <div class="info-item">
+                            <div class="info-item glass-info-item">
                                 <i class="bi bi-tag"></i>
                                 <div class="info-content">
                                     <h6>Categoría</h6>
                                     <p><?php echo htmlspecialchars($propiedad['nombre_categoria']); ?></p>
                                 </div>
                             </div>
-
-                            <div class="info-item">
+                            <div class="info-item glass-info-item">
                                 <i class="bi bi-check-circle"></i>
                                 <div class="info-content">
                                     <h6>Estado</h6>
@@ -225,15 +220,13 @@ include_once 'includes/head.php';
                             </div>
                         </div>
                     </div>
-
                     <!-- Servicios -->
                     <?php if ($propiedad['servicios']): ?>
-                        <div class="info-section">
+                        <div class="info-section glass-block">
                             <h3 class="section-title">
                                 <i class="bi bi-gear me-2"></i>
                                 Servicios
                             </h3>
-
                             <div class="services-list">
                                 <?php
                                 $servicios = explode(',', $propiedad['servicios']);
@@ -241,7 +234,7 @@ include_once 'includes/head.php';
                                     $servicio = trim($servicio);
                                     if (!empty($servicio)):
                                 ?>
-                                        <span class="service-tag"><?php echo htmlspecialchars($servicio); ?></span>
+                                        <span class="service-tag glass-service-tag"><?php echo htmlspecialchars($servicio); ?></span>
                                 <?php
                                     endif;
                                 endforeach;
@@ -249,15 +242,13 @@ include_once 'includes/head.php';
                             </div>
                         </div>
                     <?php endif; ?>
-
                     <!-- Características -->
                     <?php if ($propiedad['caracteristicas']): ?>
-                        <div class="info-section">
+                        <div class="info-section glass-block">
                             <h3 class="section-title">
                                 <i class="bi bi-list-check me-2"></i>
                                 Características
                             </h3>
-
                             <div class="features-list">
                                 <?php
                                 $caracteristicas = explode(',', $propiedad['caracteristicas']);
@@ -265,7 +256,7 @@ include_once 'includes/head.php';
                                     $caracteristica = trim($caracteristica);
                                     if (!empty($caracteristica)):
                                 ?>
-                                        <div class="feature-item">
+                                        <div class="feature-item glass-feature-item">
                                             <i class="bi bi-check2"></i>
                                             <span><?php echo htmlspecialchars($caracteristica); ?></span>
                                         </div>
@@ -308,19 +299,18 @@ include_once 'includes/head.php';
                         visitas programadas o para hacer una consulta.
                     </p>
 
-                    <div class="action-buttons">
+                    <!-- Botones de acción -->
+                    <div class="action-buttons glass-action-buttons">
                         <a href="https://wa.me/5493468525227?text=Hola, me interesa la propiedad: <?php echo urlencode($propiedad['titulo']); ?>"
-                            class="btn-contact btn-whatsapp" target="_blank">
+                            class="btn-contact btn-whatsapp glass-btn" target="_blank">
                             <i class="bi bi-whatsapp"></i>
                             WhatsApp
                         </a>
-
-                        <a href="inicio#contacto" class="btn-contact">
+                        <a href="inicio#contacto" class="btn-contact glass-btn">
                             <i class="bi bi-envelope"></i>
                             Contactar
                         </a>
-
-                        <button class="btn-contact btn-share" onclick="shareProperty()">
+                        <button class="btn-contact btn-share glass-btn" onclick="shareProperty()">
                             <i class="bi bi-share"></i>
                             Compartir
                         </button>
@@ -334,7 +324,7 @@ include_once 'includes/head.php';
                             <i class="bi bi-telephone"></i>
                             <div class="info-content">
                                 <h6>Teléfono</h6>
-                                <p>3468 52-5227</p>
+                                <p>3461 12-3456</p>
                             </div>
                         </div>
 
@@ -342,7 +332,7 @@ include_once 'includes/head.php';
                             <i class="bi bi-envelope"></i>
                             <div class="info-content">
                                 <h6>Email</h6>
-                                <p>nadinazaranich@gmail.com</p>
+                                <p>inmobiliaria@gmail.com</p>
                             </div>
                         </div>
 
@@ -350,7 +340,7 @@ include_once 'includes/head.php';
                             <i class="bi bi-geo-alt"></i>
                             <div class="info-content">
                                 <h6>Oficina</h6>
-                                <p>Catamarca 227, Guatimozín, Córdoba</p>
+                                <p>Dirección ,Ciudad, Provincia, País</p>
                             </div>
                         </div>
                     </div>
