@@ -1,0 +1,24 @@
+RewriteEngine On
+
+# Si la petición es un archivo real o directorio, no hacer nada
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Regla para vendidas amigable
+RewriteRule ^vendidas/?$ vendidas.php [QSA,L]
+
+# Regla para propiedades (sin barra y números)
+RewriteRule ^propiedad([0-9]+)$ propiedad.php?id=$1 [QSA,L]
+
+# Redirigir rutas amigables a index.php?seccion=nombre (solo si NO termina en /)
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?seccion=$1 [QSA,L]
+
+# Redirigir la raíz a /inicio
+RewriteRule ^$ index.php?seccion=inicio [QSA,L]
+
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "ALLOW-FROM https://www.google.com"
+    Header set Content-Security-Policy "frame-src 'self' https://www.google.com https://*.google.com"
+</IfModule>
+
+ErrorDocument 404 /404.php
