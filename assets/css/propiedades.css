@@ -5,38 +5,46 @@
 }
 
 .property-card {
-  background: var(--surface-color);
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 32px;
+  overflow: visible;
+  box-shadow: 0 8px 32px rgba(44, 44, 44, 0.13), 0 2px 12px rgba(44, 44, 44, 0.08);
+  border: none;
+  transition: transform 0.35s cubic-bezier(.39, .575, .56, 1), box-shadow 0.35s;
   display: flex;
   flex-direction: column;
+  position: relative;
+  min-height: 420px;
+  height: auto;
+  max-height: none;
+  padding-bottom: 0;
+  justify-content: flex-start;
 }
 
 .property-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-14px) scale(1.03) rotateX(2deg);
+  box-shadow: 0 20px 60px rgba(44, 44, 44, 0.18), 0 4px 18px rgba(44, 44, 44, 0.10);
 }
 
 .property-image {
   position: relative;
-  height: 250px;
+  height: 220px;
   overflow: hidden;
-  flex-shrink: 0;
+  border-radius: 32px 32px 0 0;
+  background: #e9eaed;
 }
 
 .property-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s cubic-bezier(.39, .575, .56, 1);
+  border-radius: 32px 32px 0 0;
 }
 
 .property-card:hover .property-image img {
-  transform: scale(1.1);
+  transform: scale(1.07) rotate(-1deg);
+  filter: brightness(0.98) contrast(1.08);
 }
 
 .property-status {
@@ -76,44 +84,72 @@
 }
 
 .property-content {
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-radius: 0 0 32px 32px;
+  box-shadow: 0 2px 12px rgba(44, 44, 44, 0.04);
+  padding: 32px 24px 38px 24px;
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
+  position: relative;
+  min-height: 120px;
+  max-height: none;
+  padding-bottom: 0;
+  justify-content: flex-start;
 }
 
 .property-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: var(--heading-color);
+  font-size: 1.18rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #232526;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(44, 44, 44, 0.04);
 }
 
 .property-info {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .info-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-  color: #666;
-  font-size: 0.9rem;
+  gap: 8px;
+  color: #444;
+  font-size: 0.98rem;
+  font-weight: 500;
+  background: rgba(240, 240, 240, 0.7);
+  border-radius: 12px;
+  padding: 5px 10px;
 }
 
 .info-item i {
-  color: var(--accent-color);
-  font-size: 1rem;
-  width: 20px;
+  color: #232526;
+  font-size: 1.25rem;
+  width: 22px;
   text-align: center;
+  opacity: 0.85;
 }
 
 .property-footer {
-  border-top: 1px solid #eee;
-  padding-top: 15px;
-  text-align: right;
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border: none;
+  min-height: 68px;
+  z-index: 4;
+  border-radius: 0 0 32px 32px;
   margin-top: auto;
 }
 
@@ -124,25 +160,36 @@
 }
 
 .btn-view-property {
-  background: var(--accent-color);
-  color: white;
+  position: static;
+  margin: 0 auto;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #232526 60%, #bcbcbc 100%);
+  color: #fff;
   border: none;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-flex;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(44,44,44,0.13);
+  transition: all 0.3s cubic-bezier(.39,.575,.56,1);
+  z-index: 5;
+  text-decoration: none;
+  outline: none;
+  border: 3px solid #fff;
 }
 
 .btn-view-property:hover {
-  background: color-mix(in srgb, var(--accent-color), #000 15%);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #bcbcbc 0%, #232526 100%);
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(44,44,44,0.18);
+}
+
+.btn-view-property i {
+  margin-left: 0;
 }
 
 .category-section {
@@ -211,83 +258,147 @@
   opacity: 0;
 }
 
+/* ===== HERO CABECERA PROPIEDADES MODERNA ===== */
 .page-header {
-  background: linear-gradient(
-    135deg,
-    var(--accent-color) 0%,
-    color-mix(in srgb, var(--accent-color), #000 20%) 100%
-  );
-  color: white;
-  padding: 80px 0;
+  background: linear-gradient(120deg, #444 0%, #e9eaed 100%);
+  color: #fff;
+  padding: 110px 0 60px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 32px rgba(44,44,44,0.10);
 }
-
 .page-header::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="50" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="30" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>')
-    repeat;
-  opacity: 0.3;
+  inset: 0;
+  background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' xmlns=\'http://www.w3.org/2000/svg\'><circle cx=\'60\' cy=\'60\' r=\'40\' fill=\'#fff\' fill-opacity=\'0.02\'/><rect x=\'200\' y=\'40\' width=\'120\' height=\'120\' rx=\'30\' fill=\'#fff\' fill-opacity=\'0.03\'/></svg>') repeat;
+  opacity: 0.5;
+  z-index: 1;
 }
-
 .page-header h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: white;
+  font-size: 3.2rem;
+  font-weight: 900;
+  margin-bottom: 18px;
+  color: #fff;
+  text-shadow: 0 4px 32px rgba(0,0,0,0.18);
   position: relative;
   z-index: 2;
+  letter-spacing: 1px;
 }
-
 .page-header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+  font-size: 1.25rem;
+  color: #e0e0e0;
+  opacity: 0.92;
   position: relative;
   z-index: 2;
   max-width: 600px;
   margin: 0 auto;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+@media (max-width: 767.98px) {
+  .page-header {
+    padding: 70px 0 30px 0;
+  }
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  .page-header p {
+    font-size: 1rem;
+  }
 }
 
-/* Filtros dinámicos */
+/* ===== FILTROS MODERNOS GLASS (ajuste bordes y scroll) ===== */
 .filters-container {
-  background: white;
-  padding: 20px 0;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  transition: transform 0.3s;
+  background: rgba(255,255,255,0.82);
+  box-shadow: 0 8px 32px rgba(44,44,44,0.10);
+  border-radius: 24px;
+  margin: -40px auto 38px auto;
+  padding: 18px 32px;
+  max-width: 1100px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
 }
-
 .filters-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 5px;
+  gap: 18px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow-x: visible;
+  padding: 0;
 }
-
+/* Ocultar scrollbar en desktop */
+.filters-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.filters-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 .filter-btn {
-  background: transparent;
-  color: var(--accent-color);
-  border: 2px solid var(--accent-color);
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-weight: 600;
+  background: rgba(255,255,255,0.18);
+  color: #232526;
+  border: 2px solid #bcbcbc;
+  padding: 12px 32px;
+  border-radius: 32px;
+  font-weight: 700;
+  font-size: 1.1rem;
   white-space: nowrap;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(.39,.575,.56,1);
+  box-shadow: 0 2px 12px rgba(44,44,44,0.06);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  outline: none;
 }
-
-.filter-btn:hover,
-.filter-btn.active {
-  background: var(--accent-color);
-  color: white;
+.filter-btn.active, .filter-btn:focus {
+  background: linear-gradient(120deg, #232526 60%, #bcbcbc 100%);
+  color: #fff;
+  border: 2px solid #232526;
+  box-shadow: 0 4px 18px rgba(44,44,44,0.13);
+}
+.filter-btn:hover {
+  background: rgba(44,44,44,0.10);
+  color: #232526;
+  border-color: #232526;
+}
+@media (max-width: 991.98px) {
+  .filters-container {
+    max-width: 98vw;
+    border-radius: 18px;
+    margin: -30px 0 24px 0;
+    padding: 12px 8px;
+  }
+  .filters-wrapper {
+    gap: 10px;
+    padding: 0 2px;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    justify-content: center;
+  }
+  .filters-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+}
+@media (max-width: 767.98px) {
+  .filters-container {
+    margin: -18px 0 14px 0;
+    border-radius: 12px;
+    padding: 8px 2px;
+  }
+  .filters-wrapper {
+    gap: 6px;
+    padding: 0 1px;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    justify-content: center;
+  }
 }
 
 .properties-grid {
@@ -295,6 +406,18 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 20px 0;
+  align-items: stretch;
+}
+
+.property-item {
+  height: 100%;
+  display: flex;
+}
+
+.property-image {
+  height: 220px;
+  min-height: 220px;
+  max-height: 220px;
 }
 
 @media (max-width: 991.98px) {
@@ -307,7 +430,18 @@
   }
 
   .property-card {
-    margin-bottom: 30px;
+    min-height: 320px;
+  }
+
+  .property-footer {
+    min-height: 54px;
+    border-radius: 0 0 24px 24px;
+  }
+
+  .btn-view-property {
+    width: 44px;
+    height: 44px;
+    font-size: 1.05rem;
   }
 
   .properties-grid {
@@ -332,8 +466,19 @@
     font-size: 1.8rem;
   }
 
-  .property-content {
-    padding: 20px;
+  .property-card {
+    min-height: 220px;
+  }
+
+  .property-footer {
+    min-height: 44px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .btn-view-property {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
   }
 
   .filters-section {
@@ -408,4 +553,22 @@
   .filter-btn {
     transition: none;
   }
+}
+
+/* =============================
+   CARDS TEMPLATE/MODELO INMOBILIARIA
+   ============================= */
+.property-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(44, 44, 44, 0.85);
+  color: #fff;
+  padding: 7px 20px;
+  border-radius: 18px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(44, 44, 44, 0.10);
+  z-index: 2;
 }

@@ -26,22 +26,22 @@ $base_query = "SELECT p.*, tp.nombre_categoria,
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 data-aos="fade-up">Nuestras Propiedades</h1>
+                <h1 data-aos="fade-up">Encuentra tu Espacio Ideal</h1>
                 <p data-aos="fade-up" data-aos-delay="100">
-                    Descubre la propiedad perfecta para ti. Ofrecemos una amplia variedad de opciones
-                    para vos
+                    Explora propiedades seleccionadas para vos.<br>
+                    Viví la experiencia de encontrar tu próximo hogar, inversión o proyecto con asesoramiento profesional y atención personalizada.
                 </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Filtros simples -->
+<!-- Filtros modernos -->
 <div class="filters-container">
     <div class="container">
         <div class="filters-wrapper justify-content-center">
             <button class="filter-btn active" data-filter="all">
-                <i class="bi bi-grid"></i> Todas
+                <i class="bi bi-grid"></i> Todas las propiedades
             </button>
             <?php
             $categorias->data_seek(0);
@@ -84,6 +84,7 @@ $base_query = "SELECT p.*, tp.nombre_categoria,
                         <div class="property-item">
                             <div class="property-card">
                                 <div class="property-image">
+                                    <span class="property-badge" style="font-size:0.98rem;padding:5px 16px;top:14px;left:14px;opacity:0.92;letter-spacing:0.2px;min-width:unset;max-width:60%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"> <?php echo htmlspecialchars($categoria['nombre_categoria']); ?> </span>
                                     <?php if ($propiedad['imagen_principal']): ?>
                                         <img src="<?php echo $propiedad['imagen_principal']; ?>"
                                             alt="<?php echo htmlspecialchars($propiedad['titulo']); ?>">
@@ -92,30 +93,30 @@ $base_query = "SELECT p.*, tp.nombre_categoria,
                                     <?php endif; ?>
                                 </div>
                                 <div class="property-content">
-                                    <h3 class="property-title"><?php echo htmlspecialchars($propiedad['titulo']); ?></h3>
-                                    <div class="property-info">
+                                    <h3 class="property-title" style="font-size:1.22rem;margin-bottom:8px;"><?php echo htmlspecialchars($propiedad['titulo']); ?></h3>
+                                    <div class="property-info" style="gap:10px;">
                                         <?php if ($propiedad['localidad']): ?>
-                                            <div class="info-item">
-                                                <i class="bi bi-geo-alt"></i>
+                                            <div class="info-item" style="margin-bottom:0;">
+                                                <i class="bi bi-geo-alt-fill"></i>
                                                 <span><?php echo htmlspecialchars($propiedad['localidad']); ?></span>
                                             </div>
                                         <?php endif; ?>
                                         <?php if ($propiedad['ubicacion']): ?>
-                                            <div class="info-item">
-                                                <i class="bi bi-map"></i>
+                                            <div class="info-item" style="margin-bottom:0;">
+                                                <i class="bi bi-map-fill"></i>
                                                 <span><?php echo htmlspecialchars($propiedad['ubicacion']); ?></span>
                                             </div>
                                         <?php endif; ?>
                                         <?php if ($propiedad['tamanio']): ?>
-                                            <div class="info-item">
+                                            <div class="info-item" style="margin-bottom:0;">
                                                 <i class="bi bi-rulers"></i>
                                                 <span><?php echo htmlspecialchars($propiedad['tamanio']); ?></span>
                                             </div>
                                         <?php endif; ?>
                                     </div>
                                     <div class="property-footer">
-                                        <a href="propiedad<?php echo $propiedad['id']; ?>" class="btn-view-property">
-                                            Ver más <i class="bi bi-arrow-right"></i>
+                                        <a href="propiedad<?php echo $propiedad['id']; ?>" class="btn-view-property" title="Ver más">
+                                            <i class="bi bi-arrow-right"></i>
                                         </a>
                                     </div>
                                 </div>
