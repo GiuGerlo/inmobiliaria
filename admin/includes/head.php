@@ -36,7 +36,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="px-3 mb-4 sidebar-brand">
-            <a href="admin.php"><img src="../assets/img/logo.png" alt="NZ Estudio" class="img-fluid" style="width: 80px;"></a>
+            <a href="admin.php"><img src="../assets/img/Logo_Artisans.webp" alt="Logo de ArtisansThinking" class="img-fluid" style="width: 80px;"></a>
         </div>
         <ul class="nav flex-column">
             <li class="nav-item">
@@ -71,6 +71,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
             </li>
         </ul>
     </div>
+    <div class="sidebar-overlay d-lg-none"></div>
 
     <!-- Main Content -->
     <div class="main-content">
